@@ -1,0 +1,17 @@
+# -*- Python -*-
+
+import os
+import sys
+import lit.formats
+
+config.name = 'OneCompiler'
+config.test_format = lit.formats.ShTest(True)
+
+config.test_source_root = os.path.dirname(__file__)
+config.test_exec_root = '@CMAKE_CURRENT_BINARY_DIR@'
+
+config.substitutions.append(('%onec', '@CMAKE_BINARY_DIR@/src/tools/onec/onec'))
+config.substitutions.append(('%FileCheck', '@LLVM_SOURCE_DIR@/utils/FileCheck'))
+
+config.environment['PATH'] = os.path.pathsep.join((
+    '@CMAKE_BINARY_DIR@/bin', config.environment['PATH']))
