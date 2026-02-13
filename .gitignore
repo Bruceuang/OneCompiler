@@ -56,6 +56,7 @@ venv.bak/
 *.ll
 *.bc
 *.mlir
+!test/**/*.mlir
 *.pb
 *.inc
 *.tblgen

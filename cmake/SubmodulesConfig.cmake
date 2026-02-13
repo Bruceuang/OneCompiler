@@ -1,5 +1,4 @@
-# OneCompiler LLVM子模块配置
-# LLVM/MLIR 专用配置
+# OneCompiler 子模块配置
 
 # 子模块根路径
 set(ONECOMPILER_SUBMODULE_ROOT "${CMAKE_SOURCE_DIR}/third_party")
@@ -7,6 +6,12 @@ set(ONECOMPILER_SUBMODULE_ROOT "${CMAKE_SOURCE_DIR}/third_party")
 # LLVM配置 - 包含MLIR
 set(LLVM_SOURCE_DIR "${ONECOMPILER_SUBMODULE_ROOT}/llvm-project/llvm")
 set(LLVM_BUILD_DIR "${CMAKE_BINARY_DIR}/third_party/llvm-project")
+
+# Torch-MLIR配置
+# 用户可以通过-DTORCH_MLIR_PATH=path/to/torch-mlir指定自定义路径
+option(TORCH_MLIR_PATH "Path to torch-mlir installation or source directory" "${ONECOMPILER_SUBMODULE_ROOT}/torch-mlir")
+set(TORCH_MLIR_SOURCE_DIR "${TORCH_MLIR_PATH}")
+set(TORCH_MLIR_BUILD_DIR "${CMAKE_BINARY_DIR}/third_party/torch-mlir")
 
 # LLVM构建参数 - MLIR通过LLVM_ENABLE_PROJECTS=mlir启用
 set(LLVM_CMAKE_ARGS

@@ -2,3 +2,6 @@
 	path = third_party/llvm-project
 	url = https://github.com/Bruceuang/llvm-project.git
 	branch = onecompiler
+[submodule "third_party/torch-mlir"]
+	path = third_party/torch-mlir
+	url = https://github.com/llvm/torch-mlir.git
